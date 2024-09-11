@@ -22,6 +22,10 @@ class Countries
     #[ORM\Column(length: 255)]
     private ?string $capital_city = null;
 
+    #[ORM\ManyToOne(inversedBy: 'countries')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Continents $continents = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +63,18 @@ class Countries
     public function setCapitalCity(string $capital_city): static
     {
         $this->capital_city = $capital_city;
+
+        return $this;
+    }
+
+    public function getContinents(): ?Continents
+    {
+        return $this->continents;
+    }
+
+    public function setContinents(?Continents $continents): static
+    {
+        $this->continents = $continents;
 
         return $this;
     }
