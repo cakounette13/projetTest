@@ -8,10 +8,9 @@
         {% include "navbar/navbar.html.twig" %}
     {% endblock %}
 
-    {% for value in cont %}
-        
-        <h1 class="title text-center mt-4">Tableau des pays par continent : {{ value.name }}</h1>
-        <table>
+    <div class="container">
+        <h1 class="title text-center mt-4">Pays appartenant au continent : {{ cont.name }}</h1>
+        <table class="table mt-4">
             <thead>
                 <tr>
                     <th scope="col">Country</th>
@@ -20,7 +19,7 @@
                 </tr>
             </thead>
 
-            {% for country in value.countries %}
+            {% for country in cont.countries %}
             <tbody>
                 <tr>
                     <td>{{ country.name }}</td>
@@ -29,9 +28,6 @@
                 </tr>
             </tbody>
             {% endfor %}
-
         </table>
-    </div>
-  
-    {% endfor %}
+    </div>       
 {% endblock %}

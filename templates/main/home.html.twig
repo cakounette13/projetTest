@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Tableau des Pays{% endblock %}
 
 {% block body %}
 
@@ -10,7 +10,7 @@
 
     <div class="container">
         <h1 class="title text-center mt-4">Tableau des pays</h1>
-        <table>
+        <table class="table mt-4">
             <thead>
                 <tr>
                     <th scope="col">Country</th>
@@ -31,4 +31,8 @@
             {% endfor %}
         </table>
     </div>
+
+    {% if app.user %}
+        <a class="btn btn_success" href="{{ path('countries_new') }}">Intégrer un nouveau Pays</a>
+    {% endif %}
 {% endblock %}

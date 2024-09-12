@@ -21,14 +21,13 @@ class MainController extends AbstractController
     }
 
     #[Route(path: "/tab/{id}", name: "tab", methods: ["GET"])]
-    public function tab(Continents $continents, ContinentsRepository $repoContinents, CountriesRepository $repoCountries): Response
+    public function tab(Continents $continents, CountriesRepository $repoCountries, ContinentsRepository $repoContinents ): Response
     {
         $continent = $repoContinents->findAll();
-        return $this->render('continent/tab.html.twig', [
+        return $this->render('tab.html.twig', [
             'cont' => $continent,
             'countries' => $repoCountries->findAll(),
             'continents' => $continents,
         ]);
-        
     }
 }
