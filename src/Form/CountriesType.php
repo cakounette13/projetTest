@@ -21,7 +21,7 @@ class CountriesType extends AbstractType
             ->add('capital_city', TextType::class)
             ->add('continents', EntityType::class, [
                 'class' => Continents::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
         ;
     }
